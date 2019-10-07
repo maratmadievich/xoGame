@@ -9,7 +9,7 @@
 import Foundation
 
 public final class Gameboard {
-    
+	
     // MARK: - Properties
     
     private lazy var positions: [[Player?]] = initialPositions()
@@ -54,6 +54,19 @@ public final class Gameboard {
         
         return true
     }
+	
+	public func getFreePositions() -> [GameboardPosition] {
+		var freePositions: [GameboardPosition] = []
+		for (column, columnValue) in positions.enumerated() {
+			for (row, rowValue) in columnValue.enumerated() {
+				if rowValue == nil {
+					let freePosition = GameboardPosition(column: column, row: row)
+					freePositions.append(freePosition)
+				}
+			}
+		}
+		return freePositions
+	}
     
     // MARK: - Private
     

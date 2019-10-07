@@ -28,13 +28,15 @@ class GameViewController: UIViewController {
     @IBOutlet var winnerLabel: UILabel!
     
     @IBOutlet var restartButton: UIButton!
+	private var gameType = GameType.pvi
+	
     
-    let gameboard = Gameboard()
+	private let gameboard = Gameboard()
     lazy var referee = Referee(gameboard: self.gameboard)
     
-    var currentPlayer: Player = .first
+    private var currentPlayer: Player = .first
     
-    var currentState: GameState! {
+    private var currentState: GameState! {
         didSet {
             self.currentState.begin()
         }
@@ -74,21 +76,30 @@ class GameViewController: UIViewController {
     }
     
     func switchToNextState() {
-        
         if false == self.currentState.isCompleted { return }
         
         if let winner = self.referee.determineWinner() {
             self.switchToFinishedState(with: winner)
-        
-        } else if self.gameboard.areAllPositionsFullfilled() {
+			
+		} else if self.gameboard.areAllPositionsFullfilled() {
             self.switchToFinishedState(with: nil)
             
-        } else {
-            self.currentPlayer = self.currentPlayer.next
-            self.swithToPlayerInputState(with: self.currentPlayer)
-            
-        }
+		} else {
+			self.switchStateByGameType()
+		}
     }
+	
+	private func switchStateByGameType() {
+		self.currentPlayer = self.currentPlayer.next
+		if self.currentPlayer == .first {
+			self.swithToPlayerInputState(with: self.currentPlayer)
+		} else if self.gameType == GameType.pvp {
+			self.swithToPlayerInputState(with: self.currentPlayer)
+		} else {
+			self.swithToBotInputState(with: self.currentPlayer)
+			self.switchToNextState()
+		}
+	}
     
     func swithToPlayerInputState(with player: Player) {
         let prototype = player.markViewPrototype
@@ -99,16 +110,36 @@ class GameViewController: UIViewController {
             prototype.lineColor = .green
         }
         prototype.layoutSubviews()
-        
+		
         self.currentState = PlayerInputState(player: player,
                                              inputState: self,
                                              gameboard: self.gameboard,
                                              gameboardView: self.gameboardView)
     }
+	
+	func swithToBotInputState(with player: Player) {
+		let prototype = player.markViewPrototype
+		prototype.lineColor = .green
+		prototype.layoutSubviews()
+		
+		self.currentState = BotInputState(player: player,
+										  inputState: self,
+										  gameboard: self.gameboard,
+										  gameboardView: self.gameboardView)
+	}
     
     func switchToFinishedState(with winner: Player?) {
         self.currentState = GameFinishedState(winner: winner, inputState: self)
     }
+	
+}
+
+//MARK: - Received GameType
+extension GameViewController {
+	
+	public func set(gameType: GameType) {
+		self.gameType = gameType
+	}
 }
 
 
@@ -117,6 +148,7 @@ extension GameViewController: GameViewInput {
     func firstPlayerTurnLabel(hide: Bool) {
         self.firstPlayerTurnLabel.isHidden = hide
     }
+	
     func secondPlayerTurnLabel(hide: Bool) {
         self.secondPlayerTurnLabel.isHidden = hide
     }
@@ -124,7 +156,9 @@ extension GameViewController: GameViewInput {
     func winnerLabel(hide: Bool)  {
         self.winnerLabel.isHidden = hide
     }
+	
     func winnerLabel(text: String) {
         self.winnerLabel.text = text
     }
+	
 }
