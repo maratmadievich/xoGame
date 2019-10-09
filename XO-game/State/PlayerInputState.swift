@@ -49,8 +49,10 @@ class PlayerInputState: GameState {
     func addMark(at position: GameboardPosition) {
         if self.isCompleted { return }
         
-        if true == self.gameboard?.containsAnyPlayer(at: position) { return }
-        
+        if true == self.gameboard?.containsAnyPlayer(at: position) {
+			self.inputState.incorrectMoveLabel(hide: false)
+			return }
+        self.inputState.incorrectMoveLabel(hide: true)
         self.gameboard?.setPlayer(self.player, at: position)
         
         let markView = self.player.markViewPrototype.makeCopy()

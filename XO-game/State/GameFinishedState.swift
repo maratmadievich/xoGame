@@ -26,6 +26,7 @@ class GameFinishedState: GameState {
     func begin() {
         self.inputState.firstPlayerTurnLabel(hide: true)
         self.inputState.secondPlayerTurnLabel(hide: true)
+		self.inputState.incorrectMoveLabel(hide: true)
         
         self.inputState.winnerLabel(hide: false)
         
