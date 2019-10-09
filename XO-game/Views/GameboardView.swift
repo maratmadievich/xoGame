@@ -24,42 +24,9 @@ public class GameboardView: UIView {
         static let lineWidth: CGFloat = 7
     }
     
-    // MARK: - Private Properties
+
     
-    private var calculatedColumnWidth: CGFloat {
-        return bounds.width / CGFloat(GameboardSize.columns)
-    }
-    private var calculatedRowHeight: CGFloat {
-        return bounds.height / CGFloat(GameboardSize.rows)
-    }
-    
-    // MARK: - Public
-    
-    public func clear() {
-        for (_, markView) in markViewForPosition {
-            markView.removeFromSuperview()
-        }
-        markViewForPosition = [:]
-    }
-    
-    public func canPlaceMarkView(at position: GameboardPosition) -> Bool {
-        return markViewForPosition[position] == nil
-    }
-    
-    public func placeMarkView(_ markView: MarkView, at position: GameboardPosition) {
-        guard self.canPlaceMarkView(at: position) else { return }
-        updateFrame(for: markView, at: position)
-        markViewForPosition[position] = markView
-        addSubview(markView)
-    }
-    
-    public func removeMarkView(at position: GameboardPosition) {
-        guard let markView = markViewForPosition[position] else {
-            return
-        }
-        markViewForPosition[position] = nil
-        markView.removeFromSuperview()
-    }
+	
     
     // MARK: - UIView
     
@@ -142,4 +109,65 @@ public class GameboardView: UIView {
                                 height: rowHeight).insetBy(dx: 0.5 * Constants.lineWidth,
                                                            dy: 0.5 * Constants.lineWidth)
     }
+}
+
+// MARK: - Public funcs
+extension GameboardView {
+	
+	public func clear() {
+		for (_, markView) in markViewForPosition {
+			markView.removeFromSuperview()
+		}
+		markViewForPosition = [:]
+	}
+	
+	public func canPlaceMarkView(at position: GameboardPosition) -> Bool {
+		return markViewForPosition[position] == nil
+	}
+	
+	public func placeMarkView(_ markView: MarkView, at position: GameboardPosition) {
+		guard self.canPlaceMarkView(at: position) else { return }
+		updateFrame(for: markView, at: position)
+		markViewForPosition[position] = markView
+		addSubview(markView)
+	}
+	
+	public func placeSurelyMarkView(_ markView: MarkView, at position: GameboardPosition) {
+		clear(position: position)
+		markViewForPosition[position] = markView
+		addSubview(markView)
+		updateFrame(for: markView, at: position)
+	}
+	
+	public func removeMarkView(at position: GameboardPosition) {
+		guard let markView = markViewForPosition[position] else {
+			return
+		}
+		markViewForPosition[position] = nil
+		markView.removeFromSuperview()
+	}
+	
+}
+
+// MARK: - Private funcs
+extension GameboardView {
+
+	public func clear(position: GameboardPosition) {
+		if !self.canPlaceMarkView(at: position) {
+			markViewForPosition[position]?.removeFromSuperview()
+		}
+	}
+}
+
+
+// MARK: - Private Properties
+extension GameboardView {
+
+	private var calculatedColumnWidth: CGFloat {
+		return bounds.width / CGFloat(GameboardSize.columns)
+	}
+	private var calculatedRowHeight: CGFloat {
+		return bounds.height / CGFloat(GameboardSize.rows)
+	}
+	
 }

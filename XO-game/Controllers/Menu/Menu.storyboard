@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mVc-27-tjE">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Menu-->
+        <scene sceneID="jnj-EA-kjb">
+            <objects>
+                <viewController id="OS1-FU-FyP" customClass="MenuViewController" customModule="XO_game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xyr-RR-TkW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="W2q-3B-6z5">
+                                <rect key="frame" x="16" y="385" width="382" height="180"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WX-Fd-gnx">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Y5N-4Z-uhH"/>
+                                        </constraints>
+                                        <state key="normal" title="1P vs AI"/>
+                                        <connections>
+                                            <action selector="buttonAiGameTapped:" destination="OS1-FU-FyP" eventType="touchUpInside" id="iaM-nd-I1V"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN8-Ul-ZAN">
+                                        <rect key="frame" x="0.0" y="60" width="382" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="8cK-j0-sTl"/>
+                                        </constraints>
+                                        <state key="normal" title="1P vs 2P"/>
+                                        <connections>
+                                            <action selector="buttonHumansGameTapped:" destination="OS1-FU-FyP" eventType="touchUpInside" id="kDg-h0-qEU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLl-wq-OIF">
+                                        <rect key="frame" x="0.0" y="120" width="382" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="B7H-rL-I2H"/>
+                                        </constraints>
+                                        <state key="normal" title="LightTraffic"/>
+                                        <connections>
+                                            <action selector="buttonLightTrafficTapped:" destination="OS1-FU-FyP" eventType="touchUpInside" id="VfP-r5-YfY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sFD-kc-IYw" firstAttribute="trailing" secondItem="W2q-3B-6z5" secondAttribute="trailing" constant="16" id="Dtw-B4-uhP"/>
+                            <constraint firstItem="W2q-3B-6z5" firstAttribute="leading" secondItem="sFD-kc-IYw" secondAttribute="leading" constant="16" id="c59-mk-z9R"/>
+                            <constraint firstItem="W2q-3B-6z5" firstAttribute="centerY" secondItem="sFD-kc-IYw" secondAttribute="centerY" id="i7B-q5-mhO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sFD-kc-IYw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Menu" id="f7F-O8-3iC"/>
+                    <connections>
+                        <segue destination="MCR-bT-jxG" kind="show" identifier="showGame" id="omu-SR-unP"/>
+                        <segue destination="7s1-bO-H6L" kind="show" identifier="showLightTraffic" id="x7L-hC-J1x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B1d-Ni-bDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1044.9275362318842" y="164.73214285714286"/>
+        </scene>
+        <!--Game-->
+        <scene sceneID="me4-LU-i3C">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Game" referencedIdentifier="Game" id="MCR-bT-jxG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Zy-lm-UAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="165"/>
+        </scene>
+        <!--Svetofor-->
+        <scene sceneID="mpM-TY-TN1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Svetofor" referencedIdentifier="Svetofor" id="7s1-bO-H6L" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLc-Pi-z3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1655" y="224"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bk8-oI-9kQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mVc-27-tjE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cRo-5K-D2G">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OS1-FU-FyP" kind="relationship" relationship="rootViewController" id="5ig-qJ-AnJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e8m-Me-lni" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134.78260869565219" y="164.73214285714286"/>
+        </scene>
+    </scenes>
+</document>
