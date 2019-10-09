@@ -36,6 +36,11 @@ class MenuViewController: UIViewController {
 		openModeAlert()
 	}
 	
+	@IBAction func buttonLightTrafficTapped(_ sender: Any) {
+		openLightTraffic()
+	}
+	
+	
 	
 }
 
@@ -67,6 +72,10 @@ extension MenuViewController {
 	
 	private func openGame() {
 		performSegue(withIdentifier: "showGame", sender: nil)
+	}
+	
+	private func openLightTraffic() {
+		performSegue(withIdentifier: "showLightTraffic", sender: nil)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Svetofor View Controller-->
+        <scene sceneID="V5i-xc-pIp">
+            <objects>
+                <viewController storyboardIdentifier="Svetofor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YRQ-Ed-mmx" customClass="SvetoforViewController" customModule="XO_game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OYo-hN-dq2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bZv-71-i3a">
+                                <rect key="frame" x="147" y="263" width="120" height="380"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ny-nl-Qic" customClass="RedView" customModule="XO_game" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="9KY-5S-mXk"/>
+                                            <constraint firstAttribute="height" constant="120" id="DfO-Q3-sdv"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSm-kH-FGf" customClass="YellowView" customModule="XO_game" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="130" width="120" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="nF8-vX-V6t"/>
+                                            <constraint firstAttribute="width" constant="120" id="yny-hG-BJ7"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuO-rw-sxc" customClass="GreenView" customModule="XO_game" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="260" width="120" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="GFK-6p-cN5"/>
+                                            <constraint firstAttribute="height" constant="120" id="egX-DU-5mW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="cDj-un-T0L"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bZv-71-i3a" firstAttribute="centerX" secondItem="XPW-OS-a5r" secondAttribute="centerX" id="ExZ-Kr-GlF"/>
+                            <constraint firstItem="bZv-71-i3a" firstAttribute="centerY" secondItem="XPW-OS-a5r" secondAttribute="centerY" id="Pom-QI-2DK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XPW-OS-a5r"/>
+                    </view>
+                    <connections>
+                        <outlet property="viewGreen" destination="kuO-rw-sxc" id="oZB-2W-1uw"/>
+                        <outlet property="viewRed" destination="1ny-nl-Qic" id="zyc-dP-Enc"/>
+                        <outlet property="viewYellow" destination="FSm-kH-FGf" id="MI4-Vj-d17"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mAT-EN-z0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130" y="125"/>
+        </scene>
+    </scenes>
+</document>

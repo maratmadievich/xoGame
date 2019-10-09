@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="W2q-3B-6z5">
-                                <rect key="frame" x="16" y="415" width="382" height="120"/>
+                                <rect key="frame" x="16" y="385" width="382" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WX-Fd-gnx">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
@@ -41,6 +41,16 @@
                                             <action selector="buttonHumansGameTapped:" destination="OS1-FU-FyP" eventType="touchUpInside" id="kDg-h0-qEU"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLl-wq-OIF">
+                                        <rect key="frame" x="0.0" y="120" width="382" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="B7H-rL-I2H"/>
+                                        </constraints>
+                                        <state key="normal" title="LightTraffic"/>
+                                        <connections>
+                                            <action selector="buttonLightTrafficTapped:" destination="OS1-FU-FyP" eventType="touchUpInside" id="VfP-r5-YfY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -55,6 +65,7 @@
                     <navigationItem key="navigationItem" title="Menu" id="f7F-O8-3iC"/>
                     <connections>
                         <segue destination="MCR-bT-jxG" kind="show" identifier="showGame" id="omu-SR-unP"/>
+                        <segue destination="7s1-bO-H6L" kind="show" identifier="showLightTraffic" id="x7L-hC-J1x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1d-Ni-bDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -68,6 +79,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zy-lm-UAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1644" y="165"/>
+        </scene>
+        <!--Svetofor-->
+        <scene sceneID="mpM-TY-TN1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Svetofor" referencedIdentifier="Svetofor" id="7s1-bO-H6L" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LLc-Pi-z3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1655" y="224"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bk8-oI-9kQ">
